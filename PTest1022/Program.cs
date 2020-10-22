@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PTest1022 {
@@ -21,8 +22,8 @@ namespace PTest1022 {
             //６以上…「６以上です」
 
             /*** ●●● ここへ解答を入力 ●●● ***/
+            //var num = CountdownEvent(inputNum, x => 5 <= x && n >= 6);
             
-
 
 
 
@@ -39,7 +40,7 @@ namespace PTest1022 {
             //※動作チェックする場合は「Exam_2_Stab()を使用すること」
 
             /*** ●●● ここへ解答を入力 ●●● ***/
-
+            //var message = GetHashCode(code);
 
 
 
@@ -62,14 +63,19 @@ namespace PTest1022 {
             string title = "";
 
             //▼▼▼▼▼　以下のコメントを切り替えて確認をする 
-            Book book = new Book() { Title = "銀河鉄道の夜", Price = 411, Pages = 276 };
-            //Book book = new Book();
+            //Book book = new Book() { Title = "銀河鉄道の夜", Price = 411, Pages = 276 };
+            Book book = new Book();
             //▲▲▲▲▲
 
             //bookオブジェクトのタイトル名を出力せよ
             //bookオブジェクトがnullの場合はそのままnullを返却すること
             /*** ●●● ここへ解答を入力 ●●● ***/
-
+            
+            //var books = book.Where(x => x.Title == 0).ToArray();
+            if (book != null)
+            {
+                Console.WriteLine(book.Title);
+            }
 
 
 
@@ -87,12 +93,13 @@ namespace PTest1022 {
 
             //金額が1200円以上の書籍を抽出せよ
             //出力については「タイトル」と「金額」を出力すること
-            
+
             /*** ●●● ここへ解答を入力 ●●● ***/
-
-
-
-
+            var book = books.Where(s => s.Price >= 1200);
+            foreach (var item in book)
+            {
+                Console.WriteLine("{0}{1}", item.Title, item.Price);
+            }
 
             /*** ●●●●● ここまで ●●●●● ***/
             Console.WriteLine($"ページの合計は{ pageSum }ページです。");
@@ -108,7 +115,11 @@ namespace PTest1022 {
 
             /*** ●●● ここへ解答を入力 ●●● ***/
 
-
+            var select = books.Where(b => b.Pages >= 400);
+            foreach (var item in select)
+            {
+                Console.WriteLine("{0}{1}", item.Title, item.Price);
+            }
 
 
 
@@ -123,7 +134,11 @@ namespace PTest1022 {
             //出力については改行をせず、ヨコにスペースを空けて出力する
             // 出力例）79 65 53 45 35 34 20 12
             /*** ●●● ここへ解答を入力 ●●● ***/
-
+            var selected = numbers.OrderByDescending(x => x);
+            foreach (var item in selected)
+            {
+                Console.Write("{0} ", item);
+            }
 
 
 
@@ -138,7 +153,8 @@ namespace PTest1022 {
 
             //引数で受け取った numbers の平均を変数 avg に求めよ
             /*** ●●● ここへ解答を入力 ●●● ***/
-
+            var averge = numbers.Average();
+            
 
 
 
